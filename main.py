@@ -1,6 +1,5 @@
 from appium import webdriver
 from appium.webdriver.common.appiumby import AppiumBy
-import pytest
 
 caps = {}
 caps["platformName"] = "Android"
@@ -21,18 +20,24 @@ caps["appium:connectHardwareKeyboard"] = True
 # Acionador do script / código
 if __name__ == '__main__':
 
-    driver = webdriver.Remote("https://Claudiotest01:284563c6-7cc3-4093-be45-fa150d83f8fc@ondemand.us-west-1"
+    # def testar_somar_dois_numeros():
+
+     driver = webdriver.Remote("https://Claudiotest01:284563c6-7cc3-4093-be45-fa150d83f8fc@ondemand.us-west-1"
                               ".saucelabs.com:443/wd/hub", caps)
 
-    el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="8")
-    el1.click()
-    el2 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="plus")
-    el2.click()
-    el3 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="5")
-    el3.click()
-    el4 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="equals")
-    el4.click()
-    el5 = driver.find_element(by=AppiumBy.ID, value="com.google.android.calculator:id/result_final")
-    el5.click()
+     resultado_esperado = '13'
 
-    driver.quit()
+     btn8 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="8")
+     btn8.click()
+     btn_somar = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="plus")
+     btn_somar.click()
+     btn5 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="5")
+     btn5.click()
+     btn_igual = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="equals")
+     btn_igual.click()
+     btn_resultado_final = driver.find_element(by=AppiumBy.ID, value="com.google.android.calculator:id/result_final")
+     print(f'resultado final = {btn_resultado_final.text} \n resultado esperado = {resultado_esperado}')
+
+     assert btn_resultado_final.text == resultado_esperado
+
+     driver.quit()

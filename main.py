@@ -1,6 +1,7 @@
 from appium import webdriver
 from appium.webdriver.common.appiumby import AppiumBy
 
+
 caps = {}
 caps["platformName"] = "Android"
 caps["appium:platformVersion"] = "9.0"
